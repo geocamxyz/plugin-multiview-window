@@ -6,7 +6,7 @@ npm install 'https://gitpkg.now.sh/geocamxyz/plugin-multiview-window/src?v1.0.0'
 ```
 or for a particual commit version:
 ```
-npm install 'https://gitpkg.now.sh/geocamxyz/plugin-multiview-window/src?16d7bda'
+npm install 'https://gitpkg.now.sh/geocamxyz/plugin-multiview-window/src?c7d31be'
 ```
 ### Import Map (External Loading):
 ```
@@ -14,7 +14,7 @@ https://cdn.jsdelivr.net/gh/geocamxyz/plugin-multiview-window@v1.0.0/dist/multiv
 ```
 or for a particual commit version:
 ```
-https://cdn.jsdelivr.net/gh/geocamxyz/plugin-multiview-window@16d7bda/dist/multiview-window.js
+https://cdn.jsdelivr.net/gh/geocamxyz/plugin-multiview-window@c7d31be/dist/multiview-window.js
 ```
 ### Usage:
 The .js file can be imported into your .html file using the below code (This can be ignored if your using the NPM package).
