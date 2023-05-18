@@ -1,0 +1,1 @@
+export { multiviewWindow } from './lib/multiview-window.js';
