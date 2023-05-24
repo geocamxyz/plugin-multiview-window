@@ -2,19 +2,19 @@
 A plugin for the geocam-viewer.
 ### NPM Installation:
 ```
-npm install 'https://gitpkg.now.sh/geocamxyz/plugin-multiview-window/src?v1.0.1'
+npm install 'https://gitpkg.now.sh/geocamxyz/plugin-multiview-window/src?v1.0.2'
 ```
 or for a particual commit version:
 ```
-npm install 'https://gitpkg.now.sh/geocamxyz/plugin-multiview-window/src?4c8b5ba'
+npm install 'https://gitpkg.now.sh/geocamxyz/plugin-multiview-window/src?530d98c'
 ```
 ### Import Map (External Loading):
 ```
-https://cdn.jsdelivr.net/gh/geocamxyz/plugin-multiview-window@v1.0.1/dist/multiview-window.js
+https://cdn.jsdelivr.net/gh/geocamxyz/plugin-multiview-window@v1.0.2/dist/multiview-window.js
 ```
 or for a particual commit version:
 ```
-https://cdn.jsdelivr.net/gh/geocamxyz/plugin-multiview-window@4c8b5ba/dist/multiview-window.js
+https://cdn.jsdelivr.net/gh/geocamxyz/plugin-multiview-window@530d98c/dist/multiview-window.js
 ```
 ### Usage:
 The .js file can be imported into your .html file using the below code (This can be ignored if your using the NPM package).
@@ -22,7 +22,7 @@ The .js file can be imported into your .html file using the below code (This can
 <script type="importmap">
   {
     "imports": {
-      "multiview-window": "https://cdn.jsdelivr.net/gh/geocamxyz/plugin-multiview-window@v1.0.1/dist/multiview-window.js"
+      "multiview-window": "https://cdn.jsdelivr.net/gh/geocamxyz/plugin-multiview-window@v1.0.2/dist/multiview-window.js"
     }
   }
 </script>
