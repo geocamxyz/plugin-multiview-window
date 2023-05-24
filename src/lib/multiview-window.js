@@ -128,6 +128,10 @@ export const multiviewWindow = function (config = {}) {
       display: none;
      }
 
+     .geocam-hidden {
+      display: none;
+     }
+
     .geocam-floating-window  .geocam-window-close-button {
       display: block;
       background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0h24v24H0z" fill="none"/><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>');
@@ -518,12 +522,13 @@ export const multiviewWindow = function (config = {}) {
     posWrapper.appendChild(position);
     const posMenuWrapper = node("div", { class: "relative" });
     const posMenu = node("div", {
-      class: "absolute bg-white p-1 shadow hidden geocam-position-menu-wrapper",
+      class: "geocam-position-menu-wrapper",
       style:
-        "top: -32px; left: calc(32px + 0.25rem); width: calc(128px + 1.25rem)",
+        "	padding: 0.25rem;box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);display: none;position: absolute;background-color: rgb(255 255 255);;top: -32px; left: calc(32px + 0.25rem); width: calc(128px + 1.25rem)",
     });
     const posOptions = node("div", {
-      class: "geocam-position-menu grid grid-cols-4 grid-rows-3 gap-1",
+      class: "geocam-position-menu",
+      style: "display: grid;grid-template-columns: repeat(4, minmax(0, 1fr));	grid-template-rows: repeat(3, minmax(0, 1fr));gap: 0.25rem;",
     });
     posOptions.appendChild(
       node("div", {
@@ -629,13 +634,13 @@ export const multiviewWindow = function (config = {}) {
 
     const onClickOutside = function (event) {
       if (!event.target.closest(".geocam-position-menu-wrapper")) {
-        posMenu.classList.add("hidden");
+        posMenu.classList.add("geocam-hidden");
       }
     };
 
     position.addEventListener("click", function () {
-      posMenu.classList.toggle("hidden");
-      if (posMenu.classList.contains("hidden")) {
+      posMenu.classList.toggle("geocam-hidden");
+      if (posMenu.classList.contains("geocam-hidden")) {
         document.removeEventListener("mousedown", onClickOutside);
       } else {
         document.addEventListener("mousedown", onClickOutside);
@@ -645,7 +650,7 @@ export const multiviewWindow = function (config = {}) {
     posMenu.addEventListener("click", function (event) {
       const target = event.target;
       if (target.classList.contains("geocam-viewer-control-button")) {
-        posMenu.classList.add("hidden");
+        posMenu.classList.add("geocam-hidden");
         document.removeEventListener("mousedown", onClickOutside);
         mode = target.getAttribute("data-mode");
         const position = target.getAttribute("data-position");
