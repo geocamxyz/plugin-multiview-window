@@ -12,7 +12,8 @@ export class GeocamViewerMultiviewWindow extends HTMLElement {
     console.log("multiview-window connected");
     const node = this;
     const parent = this.parentNode;
-    if (parent.viewer && parent.viewer.plugin) {
+    this.viewer = this.viewer;
+    if (this.viewer && this.viewer.plugin) {
       // Call a method on the parent
       const target = this.getAttribute("target");
       const element =
@@ -22,7 +23,7 @@ export class GeocamViewerMultiviewWindow extends HTMLElement {
         return;
       }
       this.plugin = new multiviewWindow(element);
-      parent.viewer.plugin(this.plugin);
+      this.viewer.plugin(this.plugin);
     } else {
       console.error(
         "GeocamViewerMultiviewWindow must be a child of GeocamViewer"
@@ -32,6 +33,7 @@ export class GeocamViewerMultiviewWindow extends HTMLElement {
 
   disconnectedCallback() {
     this.plugin = null;
+    this.viewer = null;
     console.log("multiview-window disconnected");
     // Clean up the viewer
   }
