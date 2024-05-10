@@ -1,10 +1,10 @@
-const n = (u, w = {}, l = "") => {
+const n = (u, v = {}, l = "") => {
   const i = document.createElement(u);
-  for (let f in w)
-    i.setAttribute(f, w[f]);
+  for (let f in v)
+    i.setAttribute(f, v[f]);
   return i.innerHTML = l, i;
-}, $ = (u, w) => (document.getElementById(u) || document.getElementsByTagName("head")[0].prepend(n("STYLE", { type: "text/css" }, w)), !0), B = function(u = {}) {
-  const w = {
+}, $ = (u, v) => (document.getElementById(u) || document.getElementsByTagName("head")[0].prepend(n("STYLE", { type: "text/css" }, v)), !0), B = function(u = {}) {
+  const v = {
     map: "geocam-floating-window",
     split: "geocam-split-window",
     image: "geocam-base-window"
@@ -203,7 +203,7 @@ const n = (u, w = {}, l = "") => {
   }
   const k = function() {
     return d === "image" && e ? e : i;
-  }, m = function(a, o) {
+  }, w = function(a, o) {
     return o || (o = k()), parseFloat(o.style[a]);
   }, t = function(a, o, c) {
     c || (c = k()), c.style[a] = `${T(o, 2)}%`;
@@ -215,10 +215,10 @@ const n = (u, w = {}, l = "") => {
       s = {
         x: a.clientX,
         y: a.clientY,
-        left: m("left"),
-        top: m("top"),
-        width: m("width"),
-        height: m("height"),
+        left: w("left"),
+        top: w("top"),
+        width: w("width"),
+        height: w("height"),
         props: E[c]
       };
     }
@@ -248,7 +248,7 @@ const n = (u, w = {}, l = "") => {
     const a = ["left", "top", "width", "height"];
     for (let o = 0; o < a.length; o++) {
       const c = a[o];
-      l.stores[c] ? l.stores[c](m(c)) : l.store(c, m(c));
+      l.stores[c] ? l.stores[c](w(c)) : l.store(c, w(c));
     }
     l.stores.mode ? l.mode(d) : l.store("mode", d);
   }, z = function() {
@@ -318,10 +318,10 @@ const n = (u, w = {}, l = "") => {
                 window.location.hash.substr(1)
               );
               const [o, c, g, r] = [
-                m("left"),
-                m("top"),
-                m("width"),
-                m("height")
+                w("left"),
+                w("top"),
+                w("width"),
+                w("height")
               ];
               r === 100 && c === 0 ? (e.style.top = "0%", e.style.height = "100%", e.style.left = o > 0 ? "0%" : `${100 - g}%`, e.style.width = o > 0 ? `${o}%` : `${g}%`, a = o > 0 ? "right" : "left") : (e.style.left = "0%", e.style.width = "100%", e.style.top = c > 0 ? "0%" : `${100 - r}%`, e.style.height = c > 0 ? `${c}%` : `${r}%`, a = c > 0 ? "bottom" : "top");
           }
@@ -458,13 +458,13 @@ const n = (u, w = {}, l = "") => {
         title: "float map over the viewer at the bottom left"
       })
     ), h.appendChild(p), r.appendChild(h), c.appendChild(r), l.addControl(c, "left-top", { prepend: !0 });
-    const x = function(v) {
-      v.target.closest(".geocam-position-menu-wrapper") || h.classList.add("hidden");
+    const x = function(m) {
+      m.target.closest(".geocam-position-menu-wrapper") || h.classList.add("hidden");
     };
     g.addEventListener("click", function() {
       h.classList.toggle("hidden"), h.classList.contains("hidden") ? document.removeEventListener("mousedown", x) : document.addEventListener("mousedown", x);
-    }), h.addEventListener("click", function(v) {
-      const y = v.target;
+    }), h.addEventListener("click", function(m) {
+      const y = m.target;
       if (y.classList.contains("geocam-viewer-control-button")) {
         h.classList.add("hidden"), document.removeEventListener("mousedown", x), d = y.getAttribute("data-mode");
         const U = y.getAttribute("data-position");
@@ -475,16 +475,16 @@ const n = (u, w = {}, l = "") => {
       class: "geocam-window-close-button geocam-viewer-control-button",
       title: "close geocam viewer"
     });
-    H.addEventListener("click", l.hide), l.addControl(H, "left-top", { prepend: !0 }), d = o.get("mode") ? JSON.parse(o.get("mode")) : d, console.log("mode is", d), i = n("DIV", { class: `${w[d]}` }), f = n("DIV", { class: "geocam-window-move" });
-    for (let v = 0; v < 9; v++)
+    H.addEventListener("click", l.hide), l.addControl(H, "left-top", { prepend: !0 }), d = o.get("mode") ? JSON.parse(o.get("mode")) : d, console.log("mode is", d), i = n("DIV", { class: `${v[d]}` }), f = n("DIV", { class: "geocam-window-move" });
+    for (let m = 0; m < 9; m++)
       f.appendChild(
         n("DIV", {
-          class: v == 4 ? "geocam-window-move-spacer" : "geocam-window-move-handler"
+          class: m == 4 ? "geocam-window-move-spacer" : "geocam-window-move-handler"
         })
       );
     V(), l.wrapper.parentNode.appendChild(i), i.appendChild(l.wrapper), l.visible(
-      (v) => {
-        v ? i.classList.remove("geocam-viewer-hidden") : i.classList.add("geocam-viewer-hidden");
+      (m) => {
+        m ? i.classList.remove("geocam-viewer-hidden") : i.classList.add("geocam-viewer-hidden");
       },
       { prepend: !0 }
     ), window.addEventListener("mousedown", C), window.addEventListener("mousemove", L), window.addEventListener("mouseup", z);
@@ -498,21 +498,21 @@ class F extends HTMLElement {
   }
   connectedCallback() {
     console.log("multiview-window connected");
-    const w = this.parentNode;
-    if (w.viewer && w.viewer.plugin) {
+    const v = this.parentNode;
+    if (this.viewer = v.viewer, this.viewer && this.viewer.plugin) {
       const l = this.getAttribute("target"), i = document.getElementById(l) || document.querySelector(l);
       if (!i) {
         console.error(`multiview-window: target '${l}' not found`);
         return;
       }
-      this.plugin = new B(i), w.viewer.plugin(this.plugin);
+      this.plugin = new B(i), this.viewer.plugin(this.plugin);
     } else
       console.error(
         "GeocamViewerMultiviewWindow must be a child of GeocamViewer"
       );
   }
   disconnectedCallback() {
-    this.plugin = null, console.log("multiview-window disconnected");
+    this.plugin = null, this.viewer = null, console.log("multiview-window disconnected");
   }
 }
 window.customElements.define(
