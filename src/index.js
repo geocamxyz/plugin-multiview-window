@@ -12,7 +12,7 @@ export class GeocamViewerMultiviewWindow extends HTMLElement {
     console.log("multiview-window connected");
     const node = this;
     const parent = this.parentNode;
-    this.viewer = this.viewer;
+    this.viewer = parent.viewer;
     if (this.viewer && this.viewer.plugin) {
       // Call a method on the parent
       const target = this.getAttribute("target");
