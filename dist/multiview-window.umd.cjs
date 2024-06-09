@@ -99,7 +99,7 @@
        cursor:nwse-resize;
     }
 
-    .geocam-window-close-button {
+    .geocam-split-window .geocam-window-close-button {
       display: none;
      }
 
