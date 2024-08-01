@@ -505,7 +505,7 @@ class F extends HTMLElement {
         console.error(`multiview-window: target '${l}' not found`);
         return;
       }
-      this.plugin = new B(i), this.viewer.plugin(this.plugin);
+      this.plugin = new B({ mapElement: i }), this.viewer.plugin(this.plugin);
     } else
       console.error(
         "GeocamViewerMultiviewWindow must be a child of GeocamViewer"
