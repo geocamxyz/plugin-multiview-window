@@ -22,7 +22,7 @@ export class GeocamViewerMultiviewWindow extends HTMLElement {
         console.error(`multiview-window: target '${target}' not found`);
         return;
       }
-      this.plugin = new multiviewWindow(element);
+      this.plugin = new multiviewWindow({mapElement: element});
       this.viewer.plugin(this.plugin);
     } else {
       console.error(
