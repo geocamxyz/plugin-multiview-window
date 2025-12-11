@@ -1,7 +1,7 @@
 {
   "name": "multiview-window",
   "private": true,
-  "version": "2.2.4",
+  "version": "2.2.5",
   "type": "module",
   "scripts": {
     "build": "vite build"
