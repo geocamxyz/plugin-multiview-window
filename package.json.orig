@@ -1,0 +1,16 @@
+{
+  "name": "multiview-window",
+  "private": true,
+<<<<<<< HEAD
+  "version": "2.4.0rc2",
+=======
+  "version": "2.4.0rc3",
+>>>>>>> 6764f2faa947707c58e5eaa59581f0a8e754691b
+  "type": "module",
+  "scripts": {
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "vite": "^4.0.4"
+  }
+}
